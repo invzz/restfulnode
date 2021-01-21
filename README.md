@@ -12,3 +12,8 @@
   
 - Runs only node.js and node modules without third party dependencies.
 - Server-Side "Vanilla" JS
+
+- run with 
+```
+node index.js
+```
