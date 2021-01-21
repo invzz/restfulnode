@@ -6,7 +6,5 @@
   - *dev* for development
   - *prod* for production
   - *others* can be defined 
-
 - Runs only node.js and node modules without third party dependencies.
-
 - Server-Side "Vanilla" JS
