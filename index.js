@@ -1,8 +1,4 @@
-/* NODEJS api */
-
-/* andres coronado */
-
-/* API in node (puro) */
+/* entry point */
 
 // dependencies
 var http = require('http');
