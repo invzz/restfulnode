@@ -1,5 +1,12 @@
 # restful APIs in node.js
 
 - Basic API server with routing and controllers.
-- Runs only node and node modules without dependencies.
-- "Vanilla" JS
+- Supports http and https. 
+- Supports environment variable `NODE_ENV` 
+  - *dev* for development
+  - *prod* for production
+  - *others* can be defined 
+
+- Runs only node.js and node modules without third party dependencies.
+
+- Server-Side "Vanilla" JS
