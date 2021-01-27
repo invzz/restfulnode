@@ -8,8 +8,6 @@ var http = require('http');
 // https protocol and server
 var https = require('https');
 
-// pares urls
-var URL = require('url');
 
 // file system to access files
 var fs = require('fs');
@@ -20,33 +18,13 @@ var StringDecoder = require('string_decoder').StringDecoder;
 // environments
 var env = require('./config.js');
 
-// api request controllers
-var controllers = require('./lib/controllers/controllers');
+// routes
+var routes = require('./routes');
 
-// request to object funtion
-function toObj(request, payload) {
-    const { headers, method, url } = request;
-    const parsedUrl = URL.parse(url, true);
-    return {
-        url: url,
-        payload: payload,
-        headers: headers,
-        method: method,
-        // using regex to parse the last bit of the /url/ -> url
-        route: parsedUrl.pathname.replace(/^\/+|\/+$/g, ''),
-        query: parsedUrl.query,
-    }
-}
+// helper functions
+var helpers = require('./lib/helpers')
 
 
-
-// router for request
-var routes = {
-    'users': controllers.users,
-    'hello': controllers.hello,
-    'ping': controllers.ping,
-    'notfound': controllers.notfound,
-}
 
 // http server definition 
 const httpServer = http.createServer(
@@ -75,7 +53,10 @@ httpsServer.listen(env.httpsPort, () => console.log("[ HTTPS ] Listening on port
 
 // All server logic for both http and https
 var unifiedServer = function(request, response) {
+    // decodes data to utf8
     const decoder = new StringDecoder('utf-8');
+
+    // buffer to store data stream
     var buffer = '';
 
     // open stream and decode data when as it comes to the server
@@ -88,7 +69,7 @@ var unifiedServer = function(request, response) {
         buffer += decoder.end();
 
         // getting useful object to work with from request
-        var data = toObj(request, buffer);
+        var data = helpers.reqToObj(request, buffer);
 
         // log request
         console.log('[ request ] ', data);
