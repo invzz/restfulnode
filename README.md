@@ -5,9 +5,9 @@
   - supports  `HTTPS` and  `HTTP`
   - Using file system and file descriptors
   
-- Supports *http* and *https* protocols. 
+- Supports *http* and *https* protocols.
 
-- Supports environment variable `NODE_ENV` 
+- Supports environment variable `NODE_ENV`
   - `dev` for development
   - `prod` for production
   - any other env can be defined in `config.js`
@@ -19,11 +19,13 @@
   
 ``` node index.js ```
 
-## API 
+## API
+
 ### /users
+
 - handles `GET` `POST` `PUT` `DELETE` requests.
   
-request Exapmle
+- post request Example
   
 ```json
 {
@@ -33,5 +35,29 @@ request Exapmle
     "phone": "0166533425",
     "tosArgreement": true,
     "isValid": true
+}
+```
+
+- `GET` request example `<deployed address>//users?phone=0106533425`
+- `GET` response example:
+  
+```json
+{
+    "firstName": "john",
+    "lastName": "aaa",
+    "phone": "0106533425",
+    "tosArgreement": true,
+    "isValid": true
+}
+```
+
+- `PUT` request example
+
+```json
+{
+    "firstName": "newfirstname",
+    "lastName": "newname",
+    "password": "newpass",
+    "phone": "0106533425"
 }
 ```
