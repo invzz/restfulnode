@@ -21,7 +21,7 @@ var StringDecoder = require('string_decoder').StringDecoder;
 var env = require('./config.js');
 
 // api request controllers
-var controllers = require('./lib/controllers');
+var controllers = require('./lib/controllers/controllers');
 
 // request to object funtion
 function toObj(request, payload) {
@@ -42,7 +42,7 @@ function toObj(request, payload) {
 
 // router for request
 var routes = {
-    'users': handlers.users,
+    'users': controllers.users,
     'hello': controllers.hello,
     'ping': controllers.ping,
     'notfound': controllers.notfound,
@@ -88,7 +88,7 @@ var unifiedServer = function(request, response) {
         buffer += decoder.end();
 
         // getting useful object to work with from request
-        var data = toObj(request);
+        var data = toObj(request, buffer);
 
         // log request
         console.log('[ request ] ', data);
