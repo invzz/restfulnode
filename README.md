@@ -2,6 +2,7 @@
 
 - Basic API server with routing and controllers.
   - handles `GET` and `POST` requests.
+  - supports  `HTTPS` and  `HTTP`
   
 - Supports *http* and *https* protocols. 
 

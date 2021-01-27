@@ -1,19 +1,20 @@
 /* config */
 
-
-
-
 var environments = {}
 
 // dev 
 environments.dev = {
-    'port': 3000,
+    'httpPort': 3000,
+    'httpsPort': 3001,
+    'hashingSecret': 'secret',
     'envName': 'dev'
 };
 
 // prodution
 environments.prod = {
-    'port': 8080,
+    'httpPort': 8080,
+    'httpsPort': 8081,
+    'hashingSecret': 'secret',
     'envName': 'prod'
 };
 
