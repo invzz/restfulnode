@@ -19,7 +19,7 @@ const { StringDecoder } = require('string_decoder');
 const env = require('./config.js');
 
 // routes
-const routes = require('./routes');
+const routes = require('./lib/router/routes');
 
 // helper functions
 const helpers = require('./lib/helpers');

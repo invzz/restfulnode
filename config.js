@@ -21,7 +21,7 @@ environments.prod = {
   maxChecks: 5,
 };
 
-// if not specified, conffig will fallback to defaul env
+// if not specified, config will fallback to defaul env
 environments.default = environments.dev;
 
 // gets the environment if exist.
