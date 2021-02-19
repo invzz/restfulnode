@@ -45,7 +45,7 @@
 {
     "firstName": "john",
     "lastName": "aaa",
-    "phone": "0106533425",
+    "phone": "010653425",
     "tosArgreement": true,
     "isValid": true
 }
